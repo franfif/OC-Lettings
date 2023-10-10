@@ -99,7 +99,8 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_L10N = True
+# Deprecated in Django 4.0
+# USE_L10N = True
 
 USE_TZ = True
 
@@ -108,3 +109,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# Added for forward compatibility with Django
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
