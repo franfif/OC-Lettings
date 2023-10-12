@@ -5,15 +5,18 @@ from django.db import migrations
 
 
 def transfer_profiles_data(apps, schema_editor):
-    OldProfile = apps.get_model("oc_lettings_site", "Profile")
-    NewProfile = apps.get_model("profiles", "Profile")
-    User = apps.get_model("auth", "User")
+    try:
+        OldProfile = apps.get_model("oc_lettings_site", "Profile")
+        NewProfile = apps.get_model("profiles", "Profile")
+        User = apps.get_model("auth", "User")
 
-    for old_profile in OldProfile.objects.all():
-        NewProfile.objects.create(
-            user=User.objects.get(id=old_profile.user.id),
-            favorite_city=old_profile.favorite_city,
-        )
+        for old_profile in OldProfile.objects.all():
+            NewProfile.objects.create(
+                user=User.objects.get(id=old_profile.user.id),
+                favorite_city=old_profile.favorite_city,
+            )
+    except LookupError:
+        pass
 
 
 class Migration(migrations.Migration):
