@@ -24,12 +24,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Get the commit SHA
-        id: commit_sha
-        run: echo "::set-output name=SHA::$(git rev-parse --short ${{ github.sha }})"
+        uses: actions/checkout@v4
+        shell: bash
+        run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
       -
         name: Build and push
         uses: docker/build-push-action@v5
         with:
           push: true
           platforms: linux/arm64/v8
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:${{ steps.commit_sha.outputs.SHA }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:${{ env.sha_short }}
