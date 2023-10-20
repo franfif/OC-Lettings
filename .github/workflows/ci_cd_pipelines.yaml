@@ -57,3 +57,17 @@ jobs:
           push: true
           platforms: linux/arm64/v8, linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:${{ env.sha_short }}
+
+  deployment:
+    needs: containerization
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.14
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: oc-lettings
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
