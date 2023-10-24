@@ -6,3 +6,4 @@ venv
 .idea
 .vscode
 /.vscode/
+.DS_Store
