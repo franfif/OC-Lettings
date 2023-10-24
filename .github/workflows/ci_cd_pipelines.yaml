@@ -65,9 +65,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: akhileshns/heroku-deploy@v3.12.14
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: oc-lettings
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
-          usedocker: true
+      -
+        name: Login to Heroku Container registry
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:login
+      -
+        name: Build and push
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:push -a oc-lettings web
+      -
+        name: Release
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:release -a oc-lettings web
