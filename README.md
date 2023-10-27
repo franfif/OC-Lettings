@@ -2,6 +2,7 @@
 Orange County Lettings Website
 <br>
 <img alt="Orange County Lettings logo" src="./static/media/OrangeCountyLettings_logo.png" width="224px"/>
+  
 <br/>
 </h1>
 
