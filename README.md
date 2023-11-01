@@ -142,7 +142,7 @@ The image is built following the instructions in the Dockerfile, including:
 See more information in the [Dockerfile](Dockerfile)
 
 #### 2. Run the Docker image:
-Once the containerization job is successful, you can run the following command in the terminal on any machine [with Docker](#Prerequisites):
+Once the containerization job is successful, you can run the following command in the terminal on any machine [with Docker](#Prerequisites) running:
 
 `docker run -it -p 8000:8000 franfif/oc-lettings:<commit_hash>`
 
@@ -195,17 +195,21 @@ a. Create Heroku API Key:
 - Scroll down until the section API Key then generate and reveal the key. 
 - Copy the key.
 
-b. Store Heroku API Key as GitHub Secret:
+b. Create a Heroku App:
+- In your [Heroku dashboard](https://dashboard.heroku.com/apps), create a new app.
+- The name must be the same that is used in the pipelines: **oc-lettings**.
+
+c. Store Heroku API Key as GitHub Secret:
 - Go to the GitHub repository.
 - Click on "Settings", "Secrets and variables," and then "Actions."
 - Click on "New repository secret" and add a secret named HEROKU_API_KEY with the Heroku API key you generated.
 - The deployment job will now use this new Heroku API key to deploy the app to Heroku.
 
-c. Trigger the deployment job:
+d. Trigger the deployment job:
 - Commit and push any change to the GitHub repository. When pushed to the main branch, it will trigger the deployment job.
 - The workflow will run automatically. You can monitor its progress by visiting the "Actions" tab on the GitHub repository.
 
-d. Review the Heroku App:
+e. Review the Heroku App:
 - After a successful deployment, the updated containerized application should be running on the Heroku app.
 - See below for the link to the app on Heroku.
 
