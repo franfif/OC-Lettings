@@ -4,11 +4,6 @@ FROM python:3
 # Ensure that Python doesn't buffer the standard output to display log messages in real-time.
 ENV PYTHONUNBUFFERED 1
 
-ARG SENTRY_DSN
-ENV SENTRY_DSN $SENTRY_DSN
-
-RUN echo "the sentry_dsn variable is $SENTRY_DSN"
-
 # Set the working directory inside the container to /app. All the following commands will be executed in this directory
 WORKDIR /app
 
