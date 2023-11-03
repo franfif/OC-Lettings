@@ -7,7 +7,6 @@ Orange County Lettings Website
 
 Orange County Lettings is a (fictional, for educational purposes) fast-growing startup in the property rentals industry, currently expanding across the U.S. The OC Lettings Django website was outdated, and this project aimed to improve the website, both in terms of the code and its deployment.
 
-
 At the end of this project, the following tasks were achieved:
 1. Miscellaneous technical debt refactor.
 2. Modular architecture refactor.
