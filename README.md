@@ -14,6 +14,16 @@ At the end of this project, the following tasks were achieved:
 3. CI/CD pipeline and deployment.
 4. Production error logging using Sentry.
 
+## Main skills involved in this project
+- Application **deployment** on **Heroku**
+- Containerization with **Docker**
+- Code production management using **CI/CD** methodology with **GitHub Actions**
+- **Modular architecture** in a Python application
+- Setup of a code monitoring system using **Sentry**
+- Application **refactor** to reduce technical debt
+- Organization
+- Git and Github
+- Django
 
 ## Table of Contents
 - [Getting Started](#getting-started)
