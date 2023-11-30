@@ -24,6 +24,7 @@ At the end of this project, the following tasks were achieved:
 - Organization
 - Git and Github
 - Django
+- Testing
 
 ## Table of Contents
 - [Getting Started](#getting-started)
